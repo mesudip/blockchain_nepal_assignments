@@ -1,6 +1,4 @@
 package np.blockchain.session2;
-import com.sun.javafx.runtime.VersionInfo;
-
 
 public class RC4 {
 	int[] seed;
@@ -58,7 +56,7 @@ public class RC4 {
 	//function for both encrypting and decryptng
 	
 	public int crypt(int n){
-		return n+nextRandomNumber();
+		return n^nextRandomNumber();
 	}
 	public char crypt(char c){
 		return (char)((int)((char)nextRandomNumber())^ (int)c );
@@ -83,7 +81,7 @@ public class RC4 {
 		System.out.println("Encrypted string :"+encrypted);
 		
 		
-		rc4.setKey("system"); // the same class can be used to decrypt
+		rc4.setKey("system"); // the same class instance can be used to decrypt
 		
 		String decrypted=rc4.crypt(encrypted);
 		

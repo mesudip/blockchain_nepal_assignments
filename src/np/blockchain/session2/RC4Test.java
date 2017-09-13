@@ -34,7 +34,7 @@ public class RC4Test {
 					System.out.println("Message:"+test);
 					System.out.println("Encrypted:"+encrypted);
 					System.out.println("Decrypted:"+decrypted);
-					fail("Decription match failed");
+					fail("Test string and Decrypted string match failed");
 				}
 			}
 		}
