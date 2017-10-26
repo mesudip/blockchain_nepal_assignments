@@ -2,6 +2,7 @@
 
 # the build directory
 /bin/
+/.idea/
 
 # both the files created by the Eclipse
 .classpath

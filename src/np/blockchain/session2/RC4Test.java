@@ -17,19 +17,20 @@ public class RC4Test {
 	
 	
 	
-	// encrypt each string with each key and test for equality after decrypting
+
 	@Test
 	public void test() {
 		RC4 rc4= new RC4();
-		// 
+
+		// encrypt each string with each key and test for equality after decrypting
 		for(String key:key_strings){
+            rc4.setKey(key);
 			for(String test:test_strings){
-				rc4.setKey(key);
+
 				String encrypted=rc4.crypt(test);
-				rc4.setKey(key);
 				String decrypted=rc4.crypt(encrypted);
+
 				if(!decrypted.equals(test)){
-					
 					System.out.println("\nKey    :"+key);
 					System.out.println("Message:"+test);
 					System.out.println("Encrypted:"+encrypted);

@@ -6,8 +6,8 @@ import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.InputMismatchException;
 
-public class PolyAlphabeticCipher extends Cipher {
-
+public class VigenereCipher extends Cipher {
+    // the hashtable will map the pair of bytes to another byte.
     Hashtable<AbstractMap.SimpleEntry<Byte, Byte>, Byte> encryptiontable;
     Hashtable<AbstractMap.SimpleEntry<Byte, Byte>, Byte> decryptiontable;
     byte[] key;
@@ -19,7 +19,7 @@ public class PolyAlphabeticCipher extends Cipher {
      *
      */
 
-    public PolyAlphabeticCipher(Hashtable<AbstractMap.SimpleEntry<Byte, Byte>, Byte> hashtable) {
+    public VigenereCipher(Hashtable<AbstractMap.SimpleEntry<Byte, Byte>, Byte> hashtable) {
 
         encryptiontable = hashtable;
         decryptiontable = new Hashtable<>();
