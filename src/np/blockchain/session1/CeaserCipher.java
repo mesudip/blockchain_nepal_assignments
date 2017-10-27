@@ -3,6 +3,7 @@ package np.blockchain.session1;
 import np.blockchain.session1.Cipher;
 
 public class CeaserCipher extends Cipher{
+
     byte shift_value;
 
     CeaserCipher(int shift){
