@@ -15,7 +15,11 @@ import java.security.Key;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 
-
+/**
+ * After writing if-else everywhere,
+ * I realized that making separate class for Hmac and cmac would have been a lot
+ * better decision
+ */
 public class MACCipher extends np.blockchain.session1.Cipher{
 
     public enum Type{
@@ -88,7 +92,9 @@ public class MACCipher extends np.blockchain.session1.Cipher{
     }
 
 
-    // computes mac and appends it to the start of data
+    /**
+     * computes mac and appends it to the start of data along with it's length
+     */
     @Override
     public byte[] encrypt(byte[] data)  {
         if(type==Type.HMAC) {
@@ -114,7 +120,12 @@ public class MACCipher extends np.blockchain.session1.Cipher{
     }
 
     @Override
+    /**
+     * What decrypt does is read the mad data appended at the begining of data
+     * validate the data with mac then return the data part only
+     */
     public byte[] decrypt(byte[] data) throws DecryptionError {
+
         // the length of mac plus the length byte
         int maclength=(int)data[0]+1;
 
@@ -146,8 +157,6 @@ public class MACCipher extends np.blockchain.session1.Cipher{
                     throw new DecryptionError();
                 }
             }
-
-
         }
         //this won't ever happen
         return main_data;

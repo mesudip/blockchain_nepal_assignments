@@ -1,6 +1,8 @@
 package np.blockchain.session1;
 
 
+import java.security.InvalidKeyException;
+
 public abstract class Cipher {
 
     public static class CryptError extends Exception{ }
@@ -11,7 +13,7 @@ public abstract class Cipher {
 
     public abstract byte[] encrypt(byte[]data) throws EncryptionError;
     public abstract byte[] decrypt(byte[] data) throws DecryptionError;
-    public void setKey(byte [] data) {
+    public void setKey(byte [] data) throws InvalidKeyException {
 
     }
     // set key length.
